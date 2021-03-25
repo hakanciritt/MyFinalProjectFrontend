@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   constructor(private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
-    private cartService:CartService) { }
+    private cartService: CartService) { }
 
   //component ilk kez açıldığında component DOMa yerleştiğinde çalışan metodumuz dur
   ngOnInit(): void {

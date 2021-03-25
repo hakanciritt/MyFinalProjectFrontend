@@ -11,19 +11,18 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartSummaryComponent implements OnInit {
 
-  cartItems:CartItem[]=[];
-  
-  constructor(private cartService:CartService,private toastrService:ToastrService) { }
+  cartItems: CartItem[] = [];
+
+  constructor(private cartService: CartService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getCart();
   }
-  getCart(){
-    this.cartItems=this.cartService.list();
+  getCart() {
+    this.cartItems = this.cartService.list();
   }
-  removeFromCart(product:Product){
+  removeFromCart(product: Product) {
     this.cartService.removeFromCart(product);
-    this.toastrService.error(product.productName,"sepetten silindi");
+    this.toastrService.error(product.productName, "sepetten silindi");
   }
-
 }
