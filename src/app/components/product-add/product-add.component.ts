@@ -12,7 +12,9 @@ export class ProductAddComponent implements OnInit {
 
   productAddForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService, private toastrService: ToastrService) { }
+  constructor(private formBuilder: FormBuilder,
+    private productService: ProductService,
+    private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.createProductAddForm();
@@ -23,9 +25,10 @@ export class ProductAddComponent implements OnInit {
       this.productService.add(productModule).subscribe(response => {
         this.toastrService.success(response.message, "Başarılı");
       }, responseError => {
+        console.log(responseError);
         if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası");
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası");
           }
         }
       })

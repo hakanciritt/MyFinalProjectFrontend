@@ -13,7 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit {
 
   dataLoaded = false;
-  products: Product[] = []
+  products: Product[];
   filterText = "";
 
   //activated route aktif bir route servisidir yani şuan mevcut route dir 
